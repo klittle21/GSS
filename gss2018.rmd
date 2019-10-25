@@ -1,6 +1,6 @@
 ---
 title: "General Social Survey"
-author: "Your Name"
+author: "Kwincy Little"
 date: "Year 2019"
 output: 
   html_document:
@@ -33,92 +33,135 @@ levels(mydata4$VOTE12)[2] <- "no in 12"
 
 
 # Introduction Question 1
-
 <!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?!-->
-
 This data is from the 2018 General Social Survey. The first blocks of R-code has selected down a subset of the data to just 15 variables. It has further removed unwanted factor levels in much of the data. Examine that code to see what it is doing. Finally address this question.  Is opinion on the death penalty (CAPPUN) independent of gun ownership (OWNGUN)?
 
+$H_0$: THERE IS NO RELATIONSHIP BETWEEN CAPPUN AND OWNGUN.
+$H_1$: THERE IS A RELATIONSHIP BETWEEN CAPPUN AND OWNGUN.
 
 ## Methods
-
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
+Our two variable of interest is the opinion on the death penalty (CAPPUN) and gun ownership (OWNGUN), which are both factor variables. For this project we will be using a barchart for the graphical results and a xtab command for the numerical results. 
 
 ##Results
-
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
 
 ### Descriptive Results
+The barchart shows that people who are in favor of the death penalty are more likely to own guns. 
 
 #### Graphical Descriptive Results
-
+```{r}
+barchartGC(~CAPPUN +OWNGUN,data=mydata4)
+barchartGC(~CAPPUN + OWNGUN,data=mydata4, type="percent")
+```
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+By the looks of the barchart it seems people are more likely to be in favor of guns than oppose them. 
 
 #### Numerical Descriptive Results
-
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+```{r}
+table1 <- xtabs(~CAPPUN + OWNGUN, data=mydata4)
+rowPerc(table1)
+colPerc(table1)
+```
+The amount of people who are in favor of guns and capital punishment are 48.28%. And 51.72% are opposed to guns and capital punishment.
 
 ### Inferential Results
-
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+We reject the null hypothesis, there is a relationship between the death penalty and owning a gun. From the results we can conclude that those who own guns are more likely to be in favor of the death penalty. 
 
 # Introduction Question 2
-
 <!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?!-->
-
 Now answer Is belief in the bigbang theory (BIGBANG) independent of belief in the afterlife (POSTLIFE)
 
-## Methods
+$H_0$: THERE IS NO RELATIONSHIP BETWEEN BIGBANG AND POSTLIFE. 
+$H_1$: THERE IS A RELATIONSHIP BETWEEN BIGBANG AND POSTLIFE. 
 
+## Methods
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
 
 ##Results
-
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
 
 ### Descriptive Results
+The barchart shows those who believe in the big bang theory and those who believe in afterlife.
 
 #### Graphical Descriptive Results
-
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+```{r}
+barchartGC(~BIGBANG + POSTLIFE,data=mydata4)
+barchartGC(~BIGBANG + POSTLIFE,data=mydata4, type="percent")
+```
+By the looks of the bar chart it seems more people believe in the big bang theory and afterlife then those who don't believe. 
 
 #### Numerical Descriptive Results
-
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+```{r}
+table1 <- xtabs(~BIGBANG + POSTLIFE, data=mydata4)
+rowPerc(table1)
+colPerc(table1)
+```
+The amount of people who believe in the big bang theory and afterlife is 71.4%. And 10.6% do not believe in the big bang theory and afterlife. 
+
 
 ### Inferential Results
-
-<!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
+<!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research
+question!-->
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+We fail to reject the null hypothesis. The reults show that there is no relationship between the belief of the big bang theory and afterlife. 
 
 # Introduction Question 3
-
 <!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?!-->
-
 Finally determine if a persons opinion on death penalty (CAPPUN) is independent of their race (RACE).
 
-## Methods
+$H_0$: THERE IS NO RELATIONSHIP BETWEEN CAPPUN AND RACE. 
+$H_1$: THERE IS A RELATIONSHIP BETWEEN CAPPUN AND RACE.
 
+## Methods
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
 
 ##Results
-
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
 
 ### Descriptive Results
+The bar chart shows a persons opinion on the death penalty based on race. 
 
 #### Graphical Descriptive Results
-
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+```{r}
+barchartGC(~CAPPUN + RACE,data=mydata4)
+barchartGC(~CAPPUN + RACE,data=mydata4, type="percent")
+```
+The bar chart shows that black people are more opposed to capital punishment.
 
 #### Numerical Descriptive Results
-
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+```{r}
+table1 <- xtabs(~CAPPUN + RACE, data=mydata4)
+rowPerc(table1)
+colPerc(table1)
+```
+The results show 7.76% of black people are in favor of capital punishment while 27.42% are opposed.
 
 ### Inferential Results
-
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
-
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+We reject the null hypothesis, the results show that there is a relationship between a person's opinion on the death penalty and their race. It seems black people are more likely to oppose the death penalty then any other race. 
 
 # Discussion and Conclusion
-
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+We reject the null hypothesis. From the results of question one there is a relationship between the death penalty and owning a gun. From the results we can conclude that those who own guns are more likely to be in favor of the death penalty. The results of question two show there is no relationship between the belief of the big bang theory and afterlife. And finally the results of question three show that there is a relationship between a person's opinion on the death penalty and their race. It seems black people are more likely to oppose the death penalty then any other race. 
 
