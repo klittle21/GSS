@@ -55,7 +55,7 @@ barchartGC(~CAPPUN +OWNGUN,data=mydata4)
 barchartGC(~CAPPUN + OWNGUN,data=mydata4, type="percent")
 ```
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
-By the looks of the barchart it seems people are more likely to be in favor of guns than oppose them. 
+After reviewing the graphical data, it shows that more people are in favor of the death penalty and in favor of guns then those who oppose. 
 
 #### Numerical Descriptive Results
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
@@ -68,12 +68,13 @@ The amount of people who are in favor of guns and capital punishment are 48.28%.
 
 ### Inferential Results
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
+Our p value is .0202.This means the probability of getting the sample like this under conditions when the null is true is true about 2%. Our p value is lower than our threshold of belief which is .05 (5 percent). Since the p value is less than .05 we reject the null hypothesis and conclude that their is a relationship between the opinion on the death penalty and gun ownership. 
 ```{r}
 chisq.test(table1)
 chisqtestGC(table1)
 fisher.test(table1)
 ```
-We reject the null hypothesis, there is a relationship between the death penalty and owning a gun. From the results we can conclude that those who own guns are more likely to be in favor of the death penalty. 
+Our p value is .01651. This means the probability of geting the sample like this under conditions when the null is true is true about 2%. Our p value is lower than our threshold of belief which is .05 (5 percent). Since the p value is less than .05 we reject the null hypothesis and conclude that their is relationship between the opinion on the death penalty and gun ownership. 
 
 # Introduction Question 2
 <!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?!-->
@@ -89,7 +90,7 @@ $H_1$: THERE IS A RELATIONSHIP BETWEEN BIGBANG AND POSTLIFE.
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
 
 ### Descriptive Results
-The barchart shows those who believe in the big bang theory and those who believe in afterlife.
+The barchart shows more people believe in the big bang theory then those who believed in afterlife.
 
 #### Graphical Descriptive Results
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
@@ -112,12 +113,13 @@ The amount of people who believe in the big bang theory and afterlife is 71.4%. 
 ### Inferential Results
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research
 question!-->
+Our p value is .0801. This means the probability of getting the sample like this under conditions when the null is true is about 7%. Our p value is lower than our threshold of belief which is .05 (5 percent). Since the p value is less than .05 we reject the null hypothesis and conclude that their is a relationship between the belief in after life and belief in the big bang. 
 ```{r}
 chisq.test(table1)
 chisqtestGC(table1)
 fisher.test(table1)
 ```
-We fail to reject the null hypothesis. The reults show that there is no relationship between the belief of the big bang theory and afterlife. 
+Our p value is .07143. This means the probability of getting the sample like this under conditions when the null is true is true about 7%. Our p value is lower than our threshold of belief which is .05 (5 percent). Since the p value is less than .05 we reject the null hypothesis and conclude that their is relationship between the belief in after life and belief in the big bang. 
 
 # Introduction Question 3
 <!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?!-->
@@ -141,7 +143,7 @@ The bar chart shows a persons opinion on the death penalty based on race.
 barchartGC(~CAPPUN + RACE,data=mydata4)
 barchartGC(~CAPPUN + RACE,data=mydata4, type="percent")
 ```
-The bar chart shows that black people are more opposed to capital punishment.
+The bar chart shows that black people are more opposed to capital punishment then white and other. 
 
 #### Numerical Descriptive Results
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
@@ -159,9 +161,9 @@ chisq.test(table1)
 chisqtestGC(table1)
 fisher.test(table1)
 ```
-We reject the null hypothesis, the results show that there is a relationship between a person's opinion on the death penalty and their race. It seems black people are more likely to oppose the death penalty then any other race. 
+Our p value is 9e-04. This means the probability of getting the sample like this under conditions when the null is true is true about 0%. Our p value is lower than our threshold of belief which is .05 (5 percent). Since the p value is less than .05 we reject the null hypothesis and conclude that their is relationship between the belief in after life and belief in the big bang.  
 
 # Discussion and Conclusion
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
-We reject the null hypothesis. From the results of question one there is a relationship between the death penalty and owning a gun. From the results we can conclude that those who own guns are more likely to be in favor of the death penalty. The results of question two show there is no relationship between the belief of the big bang theory and afterlife. And finally the results of question three show that there is a relationship between a person's opinion on the death penalty and their race. It seems black people are more likely to oppose the death penalty then any other race. 
+In conclusion for the first question our p value is .0202.This means the probability of getting the sample like this under conditions when the null is true is true about 2%. Our p value is lower than our threshold of belief which is .05 (5 percent). Since the p value is less than .05 we reject the null hypothesis and conclude that their is a relationship between the opinion on the death penalty and gun ownership. Second our p value is .0801. This means the probability of getting the sample like this under conditions when the null is true is about 7%. Our p value is lower than our threshold of belief which is .05 (5 percent). Since the p value is less than .05 we reject the null hypothesis and conclude that their is a relationship between the belief in after life and belief in the big bang. And lastly Our p value is 9e-04. This means the probability of getting the sample like this under conditions when the null is true is true about 0%. Our p value is lower than our threshold of belief which is .05 (5 percent). Since the p value is less than .05 we reject the null hypothesis and conclude that their is relationship between the belief in after life and belief in the big bang. We reject the null hypothesis. 
 
